@@ -1,0 +1,14 @@
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+    fetch-registry: false
+    register-with-eureka: false #单节点情况下关闭服务注册
+  server:
+    eviction-interval-timer-in-ms: 100000 #每隔10秒清楚垃圾节点
+    enable-self-preservation: false
